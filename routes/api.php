@@ -3,11 +3,13 @@
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+use App\Models\Post;
 
 
 
-
-
+Route::post('/post/create' , [PostController::class , 'create']);
+Route::post('/post/update' , [PostController::class , 'update']);
 
 
 
