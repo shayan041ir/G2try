@@ -11,6 +11,7 @@ use App\Models\Post;
 Route::post('/post/create' , [PostController::class , 'create']);
 Route::put('/post/update/{id}' , [PostController::class , 'update']);
 Route::delete('/post/delete/{id}' , [PostController::class , 'delete']);
+Route::get('/post/all/' , [PostController::class , 'select']);
 
 
 
