@@ -9,7 +9,8 @@ use App\Models\Post;
 
 
 Route::post('/post/create' , [PostController::class , 'create']);
-Route::post('/post/update' , [PostController::class , 'update']);
+Route::put('/post/update/{id}' , [PostController::class , 'update']);
+Route::delete('/post/delete/{id}' , [PostController::class , 'delete']);
 
 
 

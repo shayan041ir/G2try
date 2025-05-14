@@ -35,6 +35,7 @@ class PostController extends Controller
     public function update(Request $request)
     {
         $inp = $request->only([
+        'id',
         'title',
         'cover',
         'category',
@@ -51,5 +52,18 @@ class PostController extends Controller
         }catch(Exception $e){
             return Response()->json($e,400);
         }
+    }
+
+    // delete post
+    public function delete(Request $request)
+    {
+        $inp = $request->only(['id']);
+        
+        try{
+            $post = Post::where('id',$request->id)->delete();
+            return Response()->json('deleted',200);
+        }catch(Exception $e){
+            return Response()->json($e,400);
+        }            
     }
 }
