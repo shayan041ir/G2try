@@ -1,13 +1,16 @@
 <?php
 
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
-use App\Models\Post;
+use App\Http\Controllers\UploadController;
 
 
 
+
+Route::post('/upload/img',[UploadController::class , 'uploadimage']);
+
+
+// curd finish
 Route::post('/post/create' , [PostController::class , 'create']);
 Route::put('/post/update/{id}' , [PostController::class , 'update']);
 Route::delete('/post/delete/{id}' , [PostController::class , 'delete']);
