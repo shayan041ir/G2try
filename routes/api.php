@@ -7,6 +7,9 @@ use App\Http\Controllers\UploadController;
 
 
 
+
+
+// finish upload file save in db and storage
 Route::post('/upload/img',[UploadController::class , 'uploadimage']);
 
 
