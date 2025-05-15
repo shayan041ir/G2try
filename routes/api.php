@@ -3,10 +3,18 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UploadController;
+use App\Http\Controllers\TestController;
+use App\Http\Controllers\UserClontroller;
 
+// start jwt test 
+// Route::get('/test' , [TestController::class , 'list']);
 
+Route::post('/user/register' , [UserClontroller::class , 'register']);
+Route::post('/user/login' , [UserClontroller::class , 'login']);
 
-
+Route::group(['middleware' => 'jwt.verify'], function () {
+    Route::get('/test' , [TestController::class , 'list']);
+});
 
 
 // finish upload file save in db and storage
