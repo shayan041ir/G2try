@@ -8,6 +8,11 @@ use App\Models\User;
 use Exception;
 use GuzzleHttp\Psr7\Response;
 use Tymon\JWTAuth\Exceptions\JWTException;
+use App\Jobs\SendWelcomeEmail;
+
+
+
+
 class UserClontroller extends Controller
 {
     public function register(Request $request){
@@ -19,6 +24,7 @@ class UserClontroller extends Controller
         $user = User::create($user);
         if($user)
         {
+            SendWelcomeEmail::dispatch($user); // صفی شدن ایمیل
             return response()->json([
                 'message' => 'user register success',
                 $user
