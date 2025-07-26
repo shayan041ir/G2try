@@ -19,3 +19,7 @@ Route::get('/', function () {
 Route::get('/email', function(){
     return view('emails.welcomemail');
 })->name('email.welcom');
+
+Route::get('/{any}', function () {
+    return view('app'); // ویویی که Vue توشه
+})->where('any', '.*');
